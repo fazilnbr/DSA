@@ -17,6 +17,6 @@ func main() {
 	}
 	fmt.Println("BUBBLE SORT    :-", sort.BubbleSort(arr, limit))
 	fmt.Println("INSERTION SORT :-", sort.InsertionSort(arr, limit))
-	fmt.Println("SELECTION SORT :-", sort.SelectonSort(arr, limit))
+	fmt.Println("SELECTION SORT :-", sort.SelectionSort(arr, limit))
 	fmt.Println("QUICK SORT     :-", sort.QuickSort(arr, limit))
 }

@@ -25,7 +25,7 @@ func InsertionSort(arr []int, limit int) []int {
 	return arr
 }
 
-func SelectonSort(arr []int, limit int) []int {
+func SelectionSort(arr []int, limit int) []int {
 	var min int
 	for i := 0; i < limit; i++ {
 		min = i
@@ -42,16 +42,33 @@ func SelectonSort(arr []int, limit int) []int {
 }
 
 func QuickSort(arr []int, limit int) []int {
-	for i := 0; i < limit; i++ {
-		min := i
-		for j := i + 1; j < limit; j++ {
-			if arr[j] < arr[min] {
-				min = j
-			}
-		}
-		temp := arr[i]
-		arr[i] = arr[min]
-		arr[min] = temp
-	}
+	quicksorthelper(arr, 0, limit-1)
 	return arr
+}
+func quicksorthelper(arr []int, startIdx int, endIdx int) {
+	if startIdx >= endIdx {
+		return
+	}
+	pivotIdx := startIdx
+	leftIdx := startIdx + 1
+	rightIdx := endIdx
+
+	for leftIdx <= rightIdx {
+		if arr[pivotIdx] < arr[leftIdx] && arr[pivotIdx] > arr[rightIdx] {
+
+			arr[leftIdx], arr[rightIdx] = arr[rightIdx], arr[leftIdx]
+
+		}
+		if arr[leftIdx] <= arr[pivotIdx] {
+			leftIdx++
+		}
+		if arr[rightIdx] >= arr[pivotIdx] {
+			rightIdx--
+		}
+	}
+	arr[rightIdx], arr[pivotIdx] = arr[pivotIdx], arr[rightIdx]
+
+	quicksorthelper(arr, startIdx, rightIdx-1)
+	quicksorthelper(arr, rightIdx+1, endIdx)
+
 }
