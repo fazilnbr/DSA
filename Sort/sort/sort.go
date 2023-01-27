@@ -40,3 +40,18 @@ func SelectonSort(arr []int, limit int) []int {
 	}
 	return arr
 }
+
+func QuickSort(arr []int, limit int) []int {
+	for i := 0; i < limit; i++ {
+		min := i
+		for j := i + 1; j < limit; j++ {
+			if arr[j] < arr[min] {
+				min = j
+			}
+		}
+		temp := arr[i]
+		arr[i] = arr[min]
+		arr[min] = temp
+	}
+	return arr
+}
