@@ -15,8 +15,11 @@ func main() {
 	for i := 0; i < limit; i++ {
 		fmt.Scan(&arr[i])
 	}
+	fmt.Println("ORIGINAL ARRAY :-", arr)
 	fmt.Println("BUBBLE SORT    :-", sort.BubbleSort(arr, limit))
 	fmt.Println("INSERTION SORT :-", sort.InsertionSort(arr, limit))
 	fmt.Println("SELECTION SORT :-", sort.SelectionSort(arr, limit))
 	fmt.Println("QUICK SORT     :-", sort.QuickSort(arr, limit))
+	fmt.Println("MERGE SORT     :-", sort.MergeSort(arr))
+
 }
